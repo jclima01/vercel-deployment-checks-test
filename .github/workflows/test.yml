@@ -16,7 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Starting slow check..."
-      - run: sleep 120
+      - run: sleep 60
+      - run: exit 1
       
   migration-simulation:
     name: Migration Simulation
@@ -25,9 +26,8 @@ jobs:
     # does not have if: always() - only runs if deps pass
     steps:
       - run: echo "Running migrations..."
-      - run: sleep 30
-      - run: echo "Migrations completed"
-  
+      - run: sleep 15
+
   # new job sentinel
   deployment-ready:
     name: Deployment Ready
