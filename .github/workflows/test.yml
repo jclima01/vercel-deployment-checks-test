@@ -39,7 +39,7 @@ jobs:
       - name: Check if deployment is ready
         run: |
           if [[ "${{ needs.migration-simulation.result }}" != "success" ]]; then
-            echo "❌ Deployment not ready"
+            echo "❌ Deployment not ready: migration-simulation failed"
             echo "Migration status: ${{ needs.migration-simulation.result }}"
             exit 1
           fi
