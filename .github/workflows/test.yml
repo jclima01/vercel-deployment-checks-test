@@ -17,7 +17,6 @@ jobs:
     steps:
       - run: echo "Starting slow check..."
       - run: sleep 120
-      - run: exit 1  # keep the failure to test the blocking
       
   migration-simulation:
     name: Migration Simulation
