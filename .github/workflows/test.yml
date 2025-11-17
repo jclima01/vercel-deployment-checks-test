@@ -23,7 +23,7 @@ jobs:
   migration-simulation:
     name: Migration Simulation
     runs-on: ubuntu-latest
-    needs: [fast-check]  # Depende del fast-check
+    needs: [fast-check, slow-check]  # Depende del fast-check
     steps:
       - run: echo "Running migrations..."
       - run: sleep 30  # Simula que migrations toman 30 segundos
