@@ -1,0 +1,29 @@
+name: Test CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  fast-check:
+    name: Fast Check (passes immediately)
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Fast check passed"
+      
+  slow-check:
+    name: Slow Check (takes 2 minutes)
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Starting slow check..."
+      - run: sleep 120  # Espera 2 minutos
+      - run: echo "Slow check passed"
+      
+  migration-simulation:
+    name: Migration Simulation
+    runs-on: ubuntu-latest
+    needs: [fast-check]  # Depende del fast-check
+    steps:
+      - run: echo "Running migrations..."
+      - run: sleep 30  # Simula que migrations toman 30 segundos
+      - run: echo "Migrations completed"
