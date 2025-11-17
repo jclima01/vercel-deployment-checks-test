@@ -2,8 +2,8 @@ name: Test CI
 
 on:
   push:
-    branches: [main]
-
+    branches:
+      - main
 jobs:
   fast-check:
     name: Fast Check (passes immediately)
@@ -17,6 +17,7 @@ jobs:
     steps:
       - run: echo "Starting slow check..."
       - run: sleep 120  # Espera 2 minutos
+      - run: exit 1
       - run: echo "Slow check passed"
       
   migration-simulation:
